@@ -1,0 +1,1 @@
+web: gunicorn randomquote.wsgi --log-file -
