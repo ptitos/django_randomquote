@@ -20,20 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# local:
-#SECRET_KEY = 'oceouyn1*+iot_(_iy7rr%8+sta7zj)fww%#im-1orbx12s*mh'
-# heroku:
-import os
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
+SECRET_KEY = 'oceouyn1*+iot_(_iy7rr%8+sta7zj)fww%#im-1orbx12s*mh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 
-# local:
-#DEBUG = True
-# heroku:
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-
-# per stackexchange, I think:
 ALLOWED_HOSTS = ['*']
 
 
@@ -46,14 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-# tito's app(s) here:
     'randomquote',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-# for local and heroku (not for incblots.com):
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -68,10 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-# incblots.com
-#        	'/home/incblots/bin/projects/randomquote/templates/'
-# local and heroku:
-        	os.path.join(BASE_DIR, 'templates'),
+        	'/home/incblots/bin/projects/randomquote/templates/'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -123,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Los_Angeles'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -133,22 +118,6 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-# The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
-
-# heroku (not local, not incblots.com):
-# Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
-
-# The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
