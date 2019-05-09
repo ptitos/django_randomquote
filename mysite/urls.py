@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+import randomquote.views
+
 urlpatterns = [
-    path('randomquote/', include('randomquote.urls')),
+    path("", randomquote.views.index, name="index"),
     path('admin/', admin.site.urls),
 ]
