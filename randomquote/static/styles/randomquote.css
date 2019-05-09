@@ -40,6 +40,19 @@ button {
 	display: none;
 }
 
+#new-quote {
+    background:url("/static/images/new-quote-button.png") no-repeat;
+    cursor: pointer;
+    border: none;
+    width: 160px;
+    height: 30px;
+}
+
+#new-quote:active
+{   
+    background:url("/static/images/new-quote-button-active.png") no-repeat;
+}
+
 @media (min-width: 801px) {
 }
 
