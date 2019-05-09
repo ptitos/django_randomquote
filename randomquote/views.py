@@ -6,6 +6,8 @@ import random, re, requests
 
 def fetch_quotes(the_count):
 	the_quotes = []
+	max_quote_length = 300
+	
 	i = 0
 	while i < the_count:
 		the_num = random.randint(1,60000)
@@ -13,7 +15,7 @@ def fetch_quotes(the_count):
 		the_result = requests.get(the_url)
 		if the_result.status_code == 200:
 			the_match = re.search(r'<title>(.*)</title>', the_result.text)
-			if (len(the_match.group(1)) <= 30):
+			if (len(the_match.group(1)) <= max_quote_length):
 				the_quotes.append(the_match.group(1))
 				i += 1
 	return the_quotes	
