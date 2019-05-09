@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 body, html {
   height: 100%;
   margin: 0;
@@ -19,7 +21,7 @@ button {
 }
 
 #bg {
-  background-image: url("../images/book2.jpg");
+  background-image: url("{% static 'images/books2.jpg'%}");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -47,4 +49,3 @@ button {
 
 @media (max-width: 479px) {
 }
-

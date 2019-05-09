@@ -14,7 +14,6 @@
 	<meta charset="utf-8">
 	<title>Random Quote Machine</title>
 	<!-- <base href="http://incblots.com/randomquote/html/" /> -->
-  	<link rel="stylesheet" type="text/css" href="{% static 'styles/randomquote.css' %}" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script type="text/javascript">
 		window.onload = function() {
@@ -47,6 +46,58 @@
 			}
 		}
 	</script>
+	<style>
+		body, html {
+		  height: 100%;
+		  margin: 0;
+		  font: 400 15px/1.8 "Lato", sans-serif;
+		  color: #777;
+		}
+
+		p {
+		  color: #fff;
+		  padding: 18px;
+		  font-size: 25px;
+		  --letter-spacing: 10px;
+		}
+
+		button {
+			position: relative;
+			top: -12px;
+			height: 30px;
+		}
+
+		#bg {
+		  background-image: url("{% static 'images/books2.jpg'%}");
+		  height: 100%;
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		  --background-color: #18241B;	    
+		}
+
+		#quote-box {
+		  position: absolute;
+		  left: 20%;
+		  top: 30%;
+		  width: 60%;
+		  text-align: center;
+		  color: #000;
+		}
+
+		@media (min-width: 801px) {
+		}
+
+		@media (max-width: 800px) {
+		}
+
+		@media (min-width: 480px) {
+		}
+
+		@media (max-width: 479px) {
+		}
+
+	</style>	
 </head>
 <body>
 	<div id="bg">
