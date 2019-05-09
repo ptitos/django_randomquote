@@ -13,7 +13,7 @@ def fetch_quotes(the_count):
 		the_result = requests.get(the_url)
 		if the_result.status_code == 200:
 			the_match = re.search(r'<title>(.*)</title>', the_result.text)
-			if (the_match.group(1).length <= 30):
+			if (len(the_match.group(1)) <= 30):
 				the_quotes.append(the_match.group(1))
 				i += 1
 	return the_quotes	
