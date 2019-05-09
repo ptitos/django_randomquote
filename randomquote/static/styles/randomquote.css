@@ -3,7 +3,7 @@ body, html {
   margin: 0;
   font: 400 15px/1.8 "Lato", sans-serif;
   color: #777;
-  text-shadow: black 1px 1px 1px;
+  --text-shadow: black 1px 1px 1px;
 }
 
 p {
