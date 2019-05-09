@@ -38,7 +38,7 @@ button {
 }
 
 #disappeared {
-	display: none;
+	--display: none;
 }
 
 #new-quote {
@@ -64,5 +64,9 @@ button {
 }
 
 @media (max-width: 479px) {
+							#new-quote {
+								width: 320px;
+								height: 60px;
+							}
 }
 
